@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(Template)
+project(QtTemplate)
 
 # Use C++-17 by default.
 enable_language(CXX)
@@ -11,13 +11,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # CMake - Contains project local modules.
 #
 # CMake/Modules - Contains project independent modules.
-#   GitUpdate.cmake invokes python ${Template_SOURCE_DIR}/gitupdate.py
+#   GitUpdate.cmake invokes python ${QtTemplate_SOURCE_DIR}/gitupdate.py
 #   to pull all submodules and update to head.
 #   If this fails, it will attempt to invoke git directly to pull 
 #   submodules. 
 list(APPEND CMAKE_MODULE_PATH 
-  ${Template_SOURCE_DIR}/CMake 
-  ${Template_SOURCE_DIR}/CMake/Modules
+  ${QtTemplate_SOURCE_DIR}/CMake 
+  ${QtTemplate_SOURCE_DIR}/CMake/Modules
 )
 include(Configure)
 if (NOT Configure_SUCCEEDED)
@@ -26,25 +26,27 @@ endif()
 
 
 
-if (Template_ExternalTarget)
-    set(TargetFolders ${Template_TargetFolders})
-    set(TargetName    ${Template_TargetName})
-    set(TargetGroup   ${Template_TargetGroup})
+if (QtTemplate_ExternalTarget)
+    set(TargetFolders ${QtTemplate_TargetFolders})
+    set(TargetName    ${QtTemplate_TargetName})
+    set(TargetGroup   ${QtTemplate_TargetGroup})
 else()
     add_subdirectory(CMake)
+    add_subdirectory(Internal/Utils)
+    include(${Utils_SOURCE_DIR}/CMake/Locals.cmake)
 
     set(TargetFolders TRUE)
-    set(TargetName Template)
+    set(TargetName QtTemplate)
     set(TargetGroup )
 
-    set(Template_INCLUDE  ${Template_SOURCE_DIR})
-    set(Template_LIBRARY  ${TargetName})
+    set(QtTemplate_INCLUDE  ${QtTemplate_SOURCE_DIR})
+    set(QtTemplate_LIBRARY  ${TargetName})
 endif()
 
 add_subdirectory(Source)
 
-if (Template_BUILD_TEST)
-    if (NOT Template_ExternalTarget)
+if (QtTemplate_BUILD_TEST)
+    if (NOT QtTemplate_ExternalTarget)
         add_gtest_source(Extern/ThirdParty)
     endif()
 
