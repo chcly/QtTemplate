@@ -71,11 +71,13 @@ python gitupdate.py
 gitupdate.bat 
 ```
 
-`gitupdate.py` will also update sub-modules to the latest head. 
+`gitupdate.py` will also update sub-modules to the latest head.
 
 ## Testing
 
-The testing directory is setup to work with [googletest](https://github.com/google/googletest). As well as the initial setup for testing the standalone module either using GitHub actions or with Jenkins.
+The testing directory is setup to work with [googletest](https://github.com/google/googletest).
+Qt tests may be setup using the `CMake/Modules/ConfigQt` -> `add_qt_test_file` function.
+
 
 ## Building
 
