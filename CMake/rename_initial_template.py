@@ -10,15 +10,13 @@ def genTemplates():
     files = [
         "README.md",
         "CMakeLists.txt",
-        "Jenkinsfile",
-        ".github/workflows/autobuild.yml",
         "CMake/CMakeLists.txt",
         "CMake/Configure.cmake",
         "Source/CMakeLists.txt",
         "Test/CMakeLists.txt",
     ]
 
-    patterns = [".yml", ".txt", ".cmake", "Jenkinsfile", ".md"]
+    patterns = [".yml", ".txt", ".cmake", ".md"]
     root = os.getcwd()
 
     for file in files:
@@ -37,7 +35,7 @@ def genTemplates():
                 fp = open(full_path, "r")
                 buf = fp.read()
                 fp.close()
-                buf = buf.replace("Template", templatename)
+                buf = buf.replace("QtTemplate", templatename)
                 fp = open(full_path, "w")
                 fp.write(buf)
                 fp.close()
