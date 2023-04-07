@@ -1,6 +1,7 @@
 #include <cstdio>
-#include "gtest/gtest.h"
+
 #include "ThisDir.h"
+#include "gtest/gtest.h"
 
 GTEST_TEST(Test1, AlwaysTrue)
 {
