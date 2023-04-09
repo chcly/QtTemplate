@@ -33,13 +33,11 @@ set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "CMakePredefinedTargets/Qt")
 
 option(QtTemplate_BUILD_TEST          "Build the unit test program." ON)
 option(QtTemplate_AUTO_RUN_TEST       "Automatically run the test program." ON)
-option(QtTemplate_USE_STATIC_RUNTIME  "Build with the MultiThreaded(Debug) runtime library." ON)
 
-if (QtTemplate_USE_STATIC_RUNTIME)
-    set_static_runtime()
-else()
-    set_dynamic_runtime()
-endif()
+# can cause isuses with std::string, so you 
+# have to force the dll dependency
+# on the final executable :)
+set_dynamic_runtime()
 
 DefineExternalTargetEx(
     Utils Extern
