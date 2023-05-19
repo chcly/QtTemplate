@@ -30,19 +30,36 @@ include(ConfigureQt)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "CMakePredefinedTargets/Qt")
+set_property(GLOBAL PROPERTY AUTOGEN_SOURCE_GROUP   "Generated/Qt")
 
 option(QtTemplate_BUILD_TEST          "Build the unit test program." ON)
 option(QtTemplate_AUTO_RUN_TEST       "Automatically run the test program." ON)
 
 # can cause isuses with std::string, so you 
 # have to force the dll dependency
-# on the final executable :)
+# on the final executable
 set_dynamic_runtime()
 
 DefineExternalTargetEx(
     Utils Extern
     ${QtTemplate_SOURCE_DIR}/Internal/Utils 
     ${QtTemplate_SOURCE_DIR}/Internal/Utils
+    ${QtTemplate_BUILD_TEST}
+    ${QtTemplate_AUTO_RUN_TEST}
+)
+
+DefineExternalTargetEx(
+    View Extern
+    ${QtTemplate_SOURCE_DIR}/Internal/View 
+    ${QtTemplate_SOURCE_DIR}/Internal/View
+    ${QtTemplate_BUILD_TEST}
+    ${QtTemplate_AUTO_RUN_TEST}
+)
+
+DefineExternalTargetEx(
+    Thread Extern
+    ${QtTemplate_SOURCE_DIR}/Internal/Thread 
+    ${QtTemplate_SOURCE_DIR}/Internal/Thread
     ${QtTemplate_BUILD_TEST}
     ${QtTemplate_AUTO_RUN_TEST}
 )

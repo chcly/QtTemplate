@@ -1,6 +1,6 @@
 set(TestTargetName ${TargetName}Test)
+
 include(TestDirectory)
-gen_path_to_here()
 include(GroupSet)
 
 set_group(
@@ -9,7 +9,7 @@ set_group(
 )
 
 include_directories(
-    .
+    ${QtTemplate_INCLUDE}
     ${GTEST_INCLUDE}
 )
 
@@ -32,10 +32,3 @@ set_target_properties(
 if (QtTemplate_AUTO_RUN_TEST)
     run_test(${TestTargetName})
 endif()
-
-
-add_qt_test_file(
-    Test2 
-    ${TestTargetName}.Test2
-    ${QtTemplate_AUTO_RUN_TEST}
-)

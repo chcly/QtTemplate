@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.23)
 project(QtTemplate)
 
 # Use C++-17 by default.
@@ -34,13 +34,37 @@ else()
     add_subdirectory(CMake)
     add_subdirectory(Internal/Utils)
     include(${Utils_SOURCE_DIR}/CMake/Locals.cmake)
+    add_subdirectory(Internal/Thread)
+    add_subdirectory(Internal/View)
 
     set(TargetFolders TRUE)
     set(TargetName QtTemplate)
     set(TargetGroup )
+    
+   set(QtTemplate_DEP_INCLUDE  
+        ${Utils_INCLUDE} 
+        ${View_INCLUDE} 
+        ${Thread_INCLUDE}
+    )
+    
+   set(QtTemplate_DEP_LIBRARY  
+        ${Utils_LIBRARY} 
+        ${View_LIBRARY} 
+        ${Thread_LIBRARY}
+        Qt6::Widgets 
+        Qt6::Core 
+        Qt6::Gui 
+    )
 
-    set(QtTemplate_INCLUDE  ${QtTemplate_SOURCE_DIR})
-    set(QtTemplate_LIBRARY  ${TargetName})
+    set(QtTemplate_INCLUDE  
+        ${QtTemplate_SOURCE_DIR}
+        ${QtTemplate_DEP_INCLUDE}
+    )
+
+    set(QtTemplate_LIBRARY  
+        ${TargetName}
+        ${QtTemplate_DEP_LIBRARY}
+    )
 endif()
 
 add_subdirectory(Source)
