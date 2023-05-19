@@ -12,10 +12,11 @@ def genTemplates():
         "CMakeLists.txt",
         "CMake/CMakeLists.txt",
         "CMake/Configure.cmake",
-        "Source/CMakeLists.txt",
+        "Source/Application/CMakeLists.txt",
+        "Source/Content/CMakeLists.txt",
         "Test/CMakeLists.txt",
     ]
-
+    
     patterns = [".yml", ".txt", ".cmake", ".md"]
     root = os.getcwd()
 
