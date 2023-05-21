@@ -1,0 +1,26 @@
+name: Windows
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+     - name: Install Qt
+       uses: jurplel/install-qt-action@v3
+       with:
+         version: '6.4.1'
+         host: 'windows'
+         target: 'desktop'
+     - uses: actions/checkout@v3
+     - name: Configure
+       run: cmake -S . -B Build -DQtTemplate_BUILD_TEST=ON -DQtTemplate_AUTO_RUN_TEST=ON
+     - name: Build
+       run: cmake --build Build
+     - name: Deploy
+       run: windeployqt Bin/QtTemplate.exe
+     - name: Zip
+       run: python CMake/package.py
+     - name: Publish artifact
+       uses: actions/upload-artifact@v3
+       with:
+        path: build-windows-x64-dev.zip
+    

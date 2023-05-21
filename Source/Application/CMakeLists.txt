@@ -27,3 +27,5 @@ set_target_properties(
     ${TargetName} 
     PROPERTIES FOLDER "${TargetGroup}"
 )
+
+copy_to_bin(${TargetName} ${CMAKE_SOURCE_DIR}/Bin)

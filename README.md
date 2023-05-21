@@ -15,13 +15,12 @@ The testing directory is setup to work with [googletest](https://github.com/goog
 
 ## Building
 
-Building with CMake and Make
+Building with CMake
 
 ```sh
-mkdir build
-cd build
-cmake ..
-make
+mkdir Build
+cmake -S . -B Build -DQtTemplate_BUILD_TEST=ON -DQtTemplate_AUTO_RUN_TEST=ON
+cmake --build Build
 ```
 
 Optional defines.
@@ -30,4 +29,8 @@ Optional defines.
 |:----------------------------|:-----------------------------------------------------|:-------:|
 | QtTemplate_BUILD_TEST         | Build the unit test program.                         |   ON    |
 | QtTemplate_AUTO_RUN_TEST      | Automatically run the test program.                  |   OFF   |
-| QtTemplate_USE_STATIC_RUNTIME | Build with the MultiThreaded(Debug) runtime library. |   ON    |
+
+### Status
+
+![BuildStatus](https://github.com/chcly/QtTemplate/actions/workflows/build-windows.yml/badge.svg)
+
