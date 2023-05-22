@@ -15,7 +15,8 @@ The testing directory is setup to work with [googletest](https://github.com/goog
 
 ## Building
 
-Building with CMake
+![A1](https://github.com/chcly/QtTemplate/actions/workflows/build-linux.yml/badge.svg)
+![A2](https://github.com/chcly/QtTemplate/actions/workflows/build-windows.yml/badge.svg)
 
 ```sh
 mkdir Build
@@ -32,5 +33,4 @@ Optional defines.
 
 ### Status
 
-![BuildStatus](https://github.com/chcly/QtTemplate/actions/workflows/build-windows.yml/badge.svg)
 

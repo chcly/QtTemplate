@@ -1,14 +1,14 @@
-name: Windows
+name: Linux
 on: [push]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
      - name: Install Qt
        uses: jurplel/install-qt-action@v3
        with:
          version: '6.4.1'
-         host: 'windows'
+         host: 'linux'
          target: 'desktop'
      - uses: actions/checkout@v3
      - name: Configure
