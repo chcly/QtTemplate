@@ -31,6 +31,4 @@ Optional defines.
 | QtTemplate_BUILD_TEST         | Build the unit test program.                         |   ON    |
 | QtTemplate_AUTO_RUN_TEST      | Automatically run the test program.                  |   OFF   |
 
-### Status
-
 
