@@ -21,7 +21,7 @@ def genTemplates():
         "Test/CMakeLists.txt",
     ]
     
-    patterns = [".yml", ".txt", ".cmake", ".md"]
+    patterns = [".yml", ".txt", ".cmake", ".md", ".cpp", ".h"]
     root = os.getcwd()
 
     for file in files:
