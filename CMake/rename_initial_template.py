@@ -19,6 +19,8 @@ def genTemplates():
         "Source/Content/MainWindow.cpp",
         "Source/Content/CMakeLists.txt",
         "Test/CMakeLists.txt",
+        ".github/workflows/build-linux.yml",
+        ".github/workflows/build-windows.yml",
     ]
     
     patterns = [".yml", ".txt", ".cmake", ".md", ".cpp", ".h"]
