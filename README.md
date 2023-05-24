@@ -7,7 +7,7 @@ Defines a Qt library.
 Provides the same structure found in [ModuleTemplate](https://github.com/chcly/ModuleTemplate) with the addition of extra modules.
 
 + [Internal/Utils](https://github.com/chcly/Module.Utils) - Provides the project level dependency for Utils.
-+ [Internal/View](https://github.com/chcly/Module.Views) - Provides the View dependency.
++ [Internal/View](https://github.com/chcly/Module.View) - Provides the View dependency.
 
 ## Testing
 
