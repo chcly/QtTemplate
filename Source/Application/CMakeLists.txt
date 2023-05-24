@@ -1,4 +1,5 @@
 include(GroupSet)
+set(TargetGroup Sample)
 set(TargetName QtTemplate)
 
 set_group(

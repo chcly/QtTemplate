@@ -13,6 +13,10 @@ def genTemplates():
         "CMake/CMakeLists.txt",
         "CMake/Configure.cmake",
         "Source/Application/CMakeLists.txt",
+        "Source/Application/Application.h",
+        "Source/Application/Application.cpp",
+        "Source/Content/MainWindow.h",
+        "Source/Content/MainWindow.cpp",
         "Source/Content/CMakeLists.txt",
         "Test/CMakeLists.txt",
     ]
