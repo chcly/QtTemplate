@@ -1,2 +1,4 @@
 add_subdirectory(Content)
-add_subdirectory(Application)
+if (QtTemplate_BUILD_SAMPLE)
+    add_subdirectory(Sample)
+endif()
