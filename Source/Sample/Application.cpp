@@ -1,6 +1,6 @@
 #include <QApplication>
 #include "Utils/Exception.h"
-#include "Source/Application/Application.h"
+#include "Source/Sample/Application.h"
 #include "Source/Content/MainWindow.h"
 #include "View/Qu.h"
 

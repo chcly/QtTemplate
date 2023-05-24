@@ -23,4 +23,7 @@ add_custom_target(
     ALL SOURCES ${TargetName_SRC}
     )
 
-set_target_properties(${TargetName} PROPERTIES FOLDER "${TargetGroup}")
+set_target_properties(
+    ${TargetName} 
+    PROPERTIES FOLDER "${TargetGroup}"
+)
