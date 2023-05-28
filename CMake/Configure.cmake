@@ -12,9 +12,11 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "CMakePredefinedTargets/Qt")
 set_property(GLOBAL PROPERTY AUTOGEN_SOURCE_GROUP   "Generated/Qt")
 
-option(QtTemplate_BUILD_TEST    "Build the unit test program." OFF)
-option(QtTemplate_AUTO_RUN_TEST "Automatically run the test program." OFF)
-option(QtTemplate_BUILD_SAMPLE  "Build the sample program" ON)
+option(QtTemplate_BUILD_TEST          "Build the unit test program." OFF)
+option(QtTemplate_AUTO_RUN_TEST       "Automatically run the test program." OFF)
+option(QtTemplate_BUILD_SAMPLE        "Build the sample program" ON)
+option(QtTemplate_BUILD_VIEW_SAMPLES  "Build all samples" OFF)
+
 
 # can cause isuses with std::string, so you 
 # have to force the dll dependency
@@ -36,6 +38,10 @@ DefineExternalTargetEx(
     ${QtTemplate_BUILD_TEST}
     ${QtTemplate_AUTO_RUN_TEST}
 )
+
+set(View_BUILD_SAMPLES ${QtTemplate_BUILD_VIEW_SAMPLES} CACHE BOOL "" FORCE) 
+include(${QtTemplate_SOURCE_DIR}/Internal/View/CMake/Globals.cmake)
+
 
 DefineExternalTargetEx(
     Thread Extern
