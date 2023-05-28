@@ -6,34 +6,27 @@
 #include "View/Metrics.h"
 #include "View/Qu.h"
 
-namespace Rt2::QtTemplate
+namespace Rt2::View
 {
-
-    MainWindow::MainWindow(QWidget* parent) :
+    QtTemplate::QtTemplate(QWidget* parent) :
         LayoutView(parent)
     {
         construct();
     }
 
-    MainWindow::~MainWindow() = default;
+    QtTemplate::~QtTemplate() = default;
 
-    void MainWindow::construct()
+    void QtTemplate::construct()
     {
-        const auto layout = View::Qu::vertical();
+        const auto layout = Qu::vertical();
         constructView(layout);
-        setMinimumSize(View::Metrics::minWindow);
-        setBorder(0);
-        setPadding(0);
 
         layout->addWidget(
-            View::Qu::text("Hello World", View::Colors::ForegroundLight),
+            Qu::text("Hello World", Colors::ForegroundLight),
             1,
             Qt::AlignCenter);
+
+        layout->invalidate();
     }
 
-    void MainWindow::post()
-    {
-        show();
-    }
-
-}  // namespace Rt2::QtTemplate
+}  // namespace Rt2::View

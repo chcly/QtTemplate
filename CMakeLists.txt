@@ -41,29 +41,21 @@ else()
     set(TargetName QtTemplate)
     set(TargetGroup )
     
-   set(QtTemplate_DEP_INCLUDE  
+    set(QtTemplate_INCLUDE  
+        ${QtTemplate_SOURCE_DIR}
         ${Utils_INCLUDE} 
         ${View_INCLUDE} 
         ${Thread_INCLUDE}
     )
-    
-   set(QtTemplate_DEP_LIBRARY  
-        ${Utils_LIBRARY} 
-        ${View_LIBRARY} 
-        ${Thread_LIBRARY}
-        Qt6::Widgets 
-        Qt6::Core 
-        Qt6::Gui 
-    )
-
-    set(QtTemplate_INCLUDE  
-        ${QtTemplate_SOURCE_DIR}
-        ${QtTemplate_DEP_INCLUDE}
-    )
 
     set(QtTemplate_LIBRARY  
         ${TargetName}
-        ${QtTemplate_DEP_LIBRARY}
+        ${Utils_LIBRARY} 
+        ${View_LIBRARY} 
+        ${Thread_LIBRARY}
+        Qt6::Widgets
+        Qt6::Core
+        Qt6::Gui
     )
 endif()
 

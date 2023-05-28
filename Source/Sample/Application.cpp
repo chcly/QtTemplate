@@ -1,11 +1,10 @@
-#include <QApplication>
-#include "Utils/Exception.h"
 #include "Source/Sample/Application.h"
+#include <QApplication>
 #include "Source/Content/MainWindow.h"
+#include "Utils/Exception.h"
 #include "View/Qu.h"
 
-
-namespace Rt2::QtTemplate
+namespace Rt2::Samples
 {
     bool Application::parse(int argc, char** argv)
     {
@@ -14,33 +13,31 @@ namespace Rt2::QtTemplate
 
     int Application::go()
     {
+        int argc = 0;
 
-        int          argc = 0;
         QApplication app(argc, nullptr);
         View::Qu::initResources(app);
 
-        MainWindow win{};
-        win.post();
+        View::QtTemplate win{};
+        win.showMaximized();
 
         return QApplication::exec();
     }
 
-}  // namespace Rt2::DirList
+}  // namespace Rt2::Samples
 
 int main(int argc, char* argv[])
 {
     int rc = 1;
     try
     {
-        Rt2::QtTemplate::Application app;
+        Rt2::Samples::Application app;
         if (app.parse(argc, argv))
             rc = app.go();
     }
     catch (Rt2::Exception& ex)
     {
-        Rt2::Console::writeLine(ex.what());
-        // unused outside of flagging that an
-        // error occurred.
+        Rt2::Console::println(ex.what());
         rc = 1;
     }
     return rc;

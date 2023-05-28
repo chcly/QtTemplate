@@ -1,5 +1,4 @@
-import sys, os, datetime
-
+import os
 templatename = input("Template name:")
 templatename = templatename.replace(" ", "")
 
@@ -12,9 +11,9 @@ def genTemplates():
         "CMakeLists.txt",
         "CMake/CMakeLists.txt",
         "CMake/Configure.cmake",
-        "Source/Application/CMakeLists.txt",
-        "Source/Application/Application.h",
-        "Source/Application/Application.cpp",
+        "Source/Sample/CMakeLists.txt",
+        "Source/Sample/Application.h",
+        "Source/Sample/Application.cpp",
         "Source/Content/MainWindow.h",
         "Source/Content/MainWindow.cpp",
         "Source/Content/CMakeLists.txt",
@@ -46,6 +45,5 @@ def genTemplates():
                 fp = open(full_path, "w")
                 fp.write(buf)
                 fp.close()
-
 
 genTemplates()

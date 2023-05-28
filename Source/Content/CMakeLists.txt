@@ -1,5 +1,5 @@
 include(GroupSet)
-set(TargetName QtTemplateContent)
+set(TargetName QtTemplate)
 
 set_group(
     TargetName_SRC 
@@ -9,8 +9,10 @@ set_group(
 
 include_directories(
     ${QtTemplate_INCLUDE} 
+    ${Utils_INCLUDE}
+    ${View_INCLUDE}
+    ${Thread_INCLUDE}
 )
-
 
 add_library(
     ${TargetName} 
@@ -19,7 +21,12 @@ add_library(
 
 target_link_libraries(
     ${TargetName} 
-    ${QtTemplate_DEP_LIBRARY}
+    ${Utils_LIBRARY}
+    ${View_LIBRARY}
+    ${Thread_LIBRARY}
+    Qt6::Widgets
+    Qt6::Core
+    Qt6::Gui
 )
 
 set_target_properties(

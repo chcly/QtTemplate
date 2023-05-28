@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Rt2::QtTemplate
+namespace Rt2::Samples
 {
 
     class Application
@@ -11,4 +11,4 @@ namespace Rt2::QtTemplate
         int go();
     };
 
-}  // namespace Rt2::QtTemplate
+}  // namespace Rt2::Samples

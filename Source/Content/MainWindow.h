@@ -1,23 +1,19 @@
 #pragma once
 #include <QLineEdit>
 #include <QWidget>
-#include  "View/LayoutView.h"
+#include "View/LayoutView.h"
 
-
-namespace Rt2::QtTemplate
+namespace Rt2::View
 {
-    class MainWindow final : public View::LayoutView
+    class QtTemplate final : public LayoutView
     {
         Q_OBJECT
     public:
-        explicit MainWindow( QWidget* parent = nullptr);
-        ~MainWindow() override;
-
-        void post();
+        explicit QtTemplate(QWidget* parent = nullptr);
+        ~QtTemplate() override;
 
     private:
-        
         void construct();
     };
 
-}  // namespace Rt2::DirectoryView
+}  // namespace Rt2::View

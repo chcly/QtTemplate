@@ -16,6 +16,8 @@ set_ro_group(TargetName_SRC
     Config:${GroupRoot}/CMake/CMakeLists.txt
     Config:${GroupRoot}/CMake/*.cmake
     Config/Modules:${GroupRoot}/CMake/Modules/*.cmake
+    Python:${GroupRoot}/*.py
+    Python:${GroupRoot}/CMake/*.py
 )
 
 add_custom_target(

@@ -32,3 +32,23 @@ Optional defines.
 | QtTemplate_AUTO_RUN_TEST      | Automatically run the test program.                  |   OFF   |
 
 
+### Dependencies
+
+Local and external dependencies.
+
+```mermaid
+graph BT;
+      QtTemplate-->Utils;
+      QtTemplate-->View;
+      QtTemplate-->Thread;
+
+      Thread-->TBB;
+      Thread-->Utils;
+
+      View-->Qt;
+      View-->Utils;
+
+      Qt-->Core;
+      Qt-->Gui;
+      Qt-->Widgets;
+```
