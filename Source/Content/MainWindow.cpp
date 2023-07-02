@@ -1,10 +1,9 @@
 #include "MainWindow.h"
-#include <QBoxLayout>
 #include <QLabel>
+#include <QVBoxLayout>
 #include <QWidget>
-#include "View/Colors.h"
-#include "View/Metrics.h"
-#include "View/Qu.h"
+#include "View/Style.h"
+
 
 namespace Rt2::View
 {
@@ -18,15 +17,13 @@ namespace Rt2::View
 
     void QtTemplate::construct()
     {
-        const auto layout = Qu::vertical();
+        const auto layout = Style::Layout::v5();
         constructView(layout);
 
         layout->addWidget(
-            Qu::text("Hello World", Colors::ForegroundLight),
+            Style::Widget::label("Hello World"),
             1,
             Qt::AlignCenter);
-
-        layout->invalidate();
     }
 
 }  // namespace Rt2::View
